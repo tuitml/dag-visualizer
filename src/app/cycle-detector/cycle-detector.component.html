@@ -1,0 +1,14 @@
+<div class="container">
+  <select [formControl]="selectedField">
+    <option *ngFor="let feld of felder" [value]="feld.id">
+      {{ feld.name }}
+    </option>
+  </select>
+
+  <div *ngIf="invalidFields.length" class="invalid-fields">
+    <h4>Diese Felder würden einen Zyklus erzeugen:</h4>
+    <ul>
+      <li *ngFor="let field of invalidFields">{{ getFieldName(field) }}</li>
+    </ul>
+  </div>
+</div>
